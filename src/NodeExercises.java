@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 
 class IntNode {
     private int value;
@@ -182,5 +183,37 @@ public class NodeExercises {
         }
         System.out.println();
     }
+
+    //Exercise 10
+public static IntNode exc10(int beginner, int num) {
+    if (num <= 0){
+     return null;
+    }
+    
+    IntNode result = new IntNode(beginner);
+    IntNode current = result;
+    
+    for (int i = 1; i < num; i++) {
+        current.setNext(new IntNode(beginner + i));
+        current = current.getNext();
+    }
+    
+    return result;
+}
+
+//Exercise 11
+public static IntNode exc11(Scanner scanner) {  
+    IntNode result = null;
+    
+    while (true) {
+        int num = scanner.nextInt();
+        if (num == -999) {
+            break;
+        }
+        result = new IntNode(num, result);
+    }
+    
+    return result;
+}
 
 }
